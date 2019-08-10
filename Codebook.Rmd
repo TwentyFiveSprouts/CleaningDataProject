@@ -1,0 +1,65 @@
+---
+title: "CleaningData Final Project Codebook"
+author: "Me"
+date: "August 10, 2019"
+output: pdf_document
+---
+
+## Cleaning Data Final Project Codebook
+
+###  Origin of Data
+
+The data in the set were collected by Samsung as part of a study on their
+accelerometer. The data were collected from 30 people, ages 19-48. Each person
+performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
+SITTING, STANDING, LAYING) while wearing a smartphone. Accelerometer and 
+gyroscopic data were collected.
+
+Sensor signals included motion information in three directions (x, y, z). 
+
+This work extracts mean and standard deviation from the x, y, and z data and
+then further processes it to generate information for each subject on their
+average x, y and z accelerometer readings while performing each activity. The 
+resulting data are recorded in this file:
+
+summarydata.txt
+
+###  Structure of data output
+
+The following files are included in this output:
+
+This codebook
+README.txt
+summarydata.txt
+run_analysis.R
+
+Documentation of run_analysis.R is included in the readme file.
+
+The format of the summarydata.txt file is as follows:
+
+There are eight columns:
+
+subject- an integer designating the assigned subject id. The range is 1-30
+
+activity- factor variable describing the activity observed in each record. The 
+possible values are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING,
+STANDING, LAYING.
+
+xmean- a numeric variable representing the mean of all measurements in the 
+x direction
+
+ymean- a numeric variable representing the mean of all measurements in the 
+y direction
+
+zmean- a numeric variable representing the mean of all measurements in the 
+z direction
+
+xstddev- a numeric variable representing the standard deviation of all
+measurements in the x direction
+
+ysteddev- a numeric variable representing the standard deviation of all
+measurements in the y direction
+
+zstddev- a numeric variable representing the standard deviation of all
+measurements in the z direction
+ 
