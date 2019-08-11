@@ -1,18 +1,22 @@
+
 library("data.table")
-library("dplyr")
 
 ##      Read in labels files. I can use these as preliminary column headers
 
-activelab <- read.table("UCI HAR Dataset/activity_labels.txt")
 features <- read.table("UCI HAR Dataset/features.txt")
 
-##      I don't know if this is useful but I think it is a list of row numbers
-##      associated with the test subjects' various tests
+##      This file gives the translation between the numeric "labels" and the
+##      activities associated with each of those labels.
+
+activelab <- read.table("UCI HAR Dataset/activity_labels.txt")
+
+##      These are the subjects' ID numbers associated with each record
 
 stest<- read.table("UCI HAR Dataset/test/subject_test.txt")
 strain<- read.table("UCI HAR Dataset/train/subject_train.txt")
 
-##      These are supposed to be "labels but they appear to be row names"
+##      These are the numeric values for the activities that were being
+##      measured in each record
 
 testlab<- read.table("UCI HAR Dataset/test/y_test.txt")
 trainlab<- read.table("UCI HAR Dataset/train/y_train.txt")
@@ -67,21 +71,22 @@ alldata<- cbind(activity, alldata)
 
 ##      reduce to needed information only - means and std devs
 
-smalldata <- alldata[1:8]
+meanstdcolumns<-grep("mean|std", names(alldata))
+wantedcolumns<- c(1,2,meanstdcolumns)
+
+smalldata <- alldata[wantedcolumns]
 
 ##      now for the column labels
 
-names(smalldata)<- c("activity", "subject", "xmean", "ymean", "zmean", "xstddev", "ystddev", "zstddev")
-
+names(smalldata) <- tolower(names(smalldata))
+names(smalldata) <- gsub("-", "", names(smalldata))
+names(smalldata) <- gsub("\\(\\)", "", names(smalldata))
 
 ##      Finally, to structure into a summary table
 
-summarydata <- smalldata %>%
-        group_by(subject, activity) %>%
-        summarize(xmean = mean(xmean), ymean= mean(ymean), zmean = mean(zmean),
-                  xstddev = mean(xstddev), ystddev = mean(ystddev),
-                  zstddev = mean(zstddev))
+summarydata <- melt(smalldata, id.vars = 1:2, measure.vars = 3:81)
+summarydata <- dcast(summarydata, subject+activity~variable, mean)
 
 ##      Write out the summary table
-write.table(summarydata, "summarydata.txt")
+write.table(summarydata, "summarydata.txt", row.names = FALSE)
 
