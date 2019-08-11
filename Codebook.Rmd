@@ -37,7 +37,7 @@ Documentation of run_analysis.R is included in the readme file.
 
 The format of the summarydata.txt file is as follows:
 
-There are eight columns:
+There are eighty-one variables:
 
 subject- an integer designating the assigned subject id. The range is 1-30
 
@@ -45,21 +45,46 @@ activity- factor variable describing the activity observed in each record. The
 possible values are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING,
 STANDING, LAYING.
 
-xmean- a numeric variable representing the mean of all measurements in the 
-x direction
+The following 79 variables are means taken across all observations of the
+same combination of subject and activity.
 
-ymean- a numeric variable representing the mean of all measurements in the 
-y direction
-
-zmean- a numeric variable representing the mean of all measurements in the 
-z direction
-
-xstddev- a numeric variable representing the standard deviation of all
-measurements in the x direction
-
-ysteddev- a numeric variable representing the standard deviation of all
-measurements in the y direction
-
-zstddev- a numeric variable representing the standard deviation of all
-measurements in the z direction
- 
+  "tbodyaccmeanx"                "tbodyaccmeany"               
+  "tbodyaccmeanz"                "tbodyaccstdx"                
+  "tbodyaccstdy"                 "tbodyaccstdz"                
+  "tgravityaccmeanx"             "tgravityaccmeany"            
+  "tgravityaccmeanz"             "tgravityaccstdx"             
+  "tgravityaccstdy"              "tgravityaccstdz"             
+ "tbodyaccjerkmeanx"            "tbodyaccjerkmeany"           
+ "tbodyaccjerkmeanz"            "tbodyaccjerkstdx"            
+ "tbodyaccjerkstdy"             "tbodyaccjerkstdz"            
+ "tbodygyromeanx"               "tbodygyromeany"              
+ "tbodygyromeanz"               "tbodygyrostdx"               
+ "tbodygyrostdy"                "tbodygyrostdz"               
+ "tbodygyrojerkmeanx"           "tbodygyrojerkmeany"          
+ "tbodygyrojerkmeanz"           "tbodygyrojerkstdx"           
+ "tbodygyrojerkstdy"            "tbodygyrojerkstdz"           
+ "tbodyaccmagmean"              "tbodyaccmagstd"              
+ "tgravityaccmagmean"           "tgravityaccmagstd"           
+ "tbodyaccjerkmagmean"          "tbodyaccjerkmagstd"          
+ "tbodygyromagmean"             "tbodygyromagstd"             
+ "tbodygyrojerkmagmean"         "tbodygyrojerkmagstd"         
+ "fbodyaccmeanx"                "fbodyaccmeany"               
+ "fbodyaccmeanz"                "fbodyaccstdx"                
+ "fbodyaccstdy"                 "fbodyaccstdz"                
+ "fbodyaccmeanfreqx"            "fbodyaccmeanfreqy"           
+ "fbodyaccmeanfreqz"            "fbodyaccjerkmeanx"           
+ "fbodyaccjerkmeany"            "fbodyaccjerkmeanz"           
+ "fbodyaccjerkstdx"             "fbodyaccjerkstdy"            
+ "fbodyaccjerkstdz"             "fbodyaccjerkmeanfreqx"       
+ "fbodyaccjerkmeanfreqy"        "fbodyaccjerkmeanfreqz"       
+ "fbodygyromeanx"               "fbodygyromeany"              
+ "fbodygyromeanz"               "fbodygyrostdx"               
+ "fbodygyrostdy"                "fbodygyrostdz"               
+ "fbodygyromeanfreqx"           "fbodygyromeanfreqy"          
+ "fbodygyromeanfreqz"           "fbodyaccmagmean"             
+ "fbodyaccmagstd"               "fbodyaccmagmeanfreq"         
+ "fbodybodyaccjerkmagmean"      "fbodybodyaccjerkmagstd"      
+ "fbodybodyaccjerkmagmeanfreq"  "fbodybodygyromagmean"        
+ "fbodybodygyromagstd"          "fbodybodygyromagmeanfreq"    
+ "fbodybodygyrojerkmagmean"     "fbodybodygyrojerkmagstd"     
+ "fbodybodygyrojerkmagmeanfreq"
